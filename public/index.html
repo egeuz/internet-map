@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Map of the Internet</title>
+
+    <!--MAPBOX API-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <!--CSS-->
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div id="modal">
+      <div id="error-box">
+        <p id="error-text"></p>
+        <button id="error-close">x</button>
+      </div>
+      <div id="content">
+      <div id="title">
+        <h1>MAP OF THE INTERNET</h1>
+        <p>Find out where the websites you visit the most are located.</p>
+      </div>
+
+      <div id="input-container">
+        <input placeholder="google.com" type="text" />
+        <button type="submit">GO</button>
+      </div>
+
+      <div id="credits">
+        <p>
+          Designed and developed by
+          <a href="https://egeuz.com/" target="_blank">Ege Uz</a>
+        </p>
+      </div>
+    </div>
+    </div>
+
+    <!--AXIOS-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--JAVASCRIPT-->
+    <script src="js/app.js"></script>
+  </body>
+</html>

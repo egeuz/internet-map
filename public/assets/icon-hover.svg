@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="25px" viewBox="0 0 20 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>map-icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="map-icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M10,25 C16.6666667,18.6818983 20,13.6818983 20,10 C20,4.4771525 15.5228475,-5.32907052e-15 10,-5.32907052e-15 C4.4771525,-5.32907052e-15 -8.8817842e-15,4.4771525 -8.8817842e-15,10 C-8.8817842e-15,13.6818983 3.33333333,18.6818983 10,25 Z" id="Oval" fill="#676BF9"></path>
+        <circle id="Oval" fill="#FFFFFF" cx="10" cy="10" r="4"></circle>
+    </g>
+</svg>

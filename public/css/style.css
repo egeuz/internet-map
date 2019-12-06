@@ -1,0 +1,186 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/**** MAP ****/
+#map {
+  width: 100%;
+  height: 100vh;
+}
+
+/**** MAP MARKER ****/
+.marker {
+  width: 20px;
+  height: 25px;
+  background: url('../assets/icon.svg') no-repeat;
+  transition: background 0.2s;
+}
+
+.marker:hover {
+  background: url('../assets//icon-hover.svg') no-repeat;
+}
+
+
+.mapboxgl-popup {
+  width: 100%;
+  max-width: 250px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.mapboxgl-popup-close-button {
+  color: #222;
+}
+
+.mapboxgl-popup-content {
+  background: #222;
+  border-radius: 0;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color: #222;
+}
+
+.marker-content {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.marker-content p {
+  margin-top: 10px;
+}
+
+.marker-content .title {
+  font-weight: 800;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.marker-content .location {
+  line-height: 1.2;
+}
+
+.marker-content .visit-count {
+  color: #bbb;
+  font-style: italic; 
+}
+
+/**** MODAL ****/
+#modal {
+  position: fixed;
+  width: 95%;
+  max-width: 500px;
+  min-height: 130px;
+  bottom: 2.5vw;
+  right: 2.5vw;
+}
+
+#content {
+  width: 100%;
+  background: #222;
+  padding: 20px 20px 15px;
+}
+
+#title h1 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 0.75rem;
+}
+
+#credits a:hover {
+  color: #fff;
+}
+
+#credits p, #credits a {
+  color: #bbb;
+  font-style: italic;
+  transition: color 0.2s;
+}
+
+
+/**** SEARCH MODE ****/
+#input-container {
+  width: 100%;
+  height: 50px;
+  margin: 20px auto;
+  grid-gap: 0 20px;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+}
+
+input, button {
+  display: block;
+  width: 100%;
+  outline: none;
+  padding: 5px 5px;
+  border: none;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: -1px;
+  background: none;
+}
+
+#input-container input {
+  color: #bbb;
+  border-bottom: 2px solid #bbb;
+  font-size: 1.25rem;
+  padding: 0px 5px;
+}
+
+#input-container input:focus, #input-container button:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+#input-container button {
+  margin-top: 10px;
+  font-size: 1.25rem;
+  color: #bbb;
+  border: 2px solid #bbb;
+  transition: color 0.2s;
+  cursor: pointer;
+  vertical-align: bottom;
+}
+
+/**** ERROR ****/
+#error-box {
+  width: 100%;
+  background: red;
+  margin-bottom: 15px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto 40px;
+  align-items: center;
+  visibility: hidden;
+}
+
+#error-box.visible {
+  visibility: visible;
+}
+
+#error-text {
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+strong {
+  font-weight: 700;
+}
+
+#error-close {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
