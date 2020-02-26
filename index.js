@@ -1,6 +1,6 @@
 /**** DEPENDENCIES ****/
 const express = require('express')
-const ping = require('ping')
+const ping = require('domain-ping')
 const axios = require('axios')
 
 /**** MIDDLEWARE ****/
@@ -30,8 +30,8 @@ app.get('/all-queries', (req, res) => {
 })
 
 /**** PREP AND SEND BROWSER HISTORY DATA ****/
-app.post('/new-query', (req, res) => {
-  const url = req.body.url
+app.post('/new-query', (request, response) => {
+  const url = request.body.url
 
   Query.findOne({ url: url }).then(async query => {
     if (query) {
@@ -41,24 +41,29 @@ app.post('/new-query', (req, res) => {
       })
       res.json(query.toJSON())
     } else {
-      const pingData = await ping.promise.probe(url, { timeout: 10 })
-      const ip = pingData.numeric_host
-      const location = await axios.get(`http://api.ipstack.com/${ip}?access_key=${IPSTACK_KEY}`)
+      ping(url)
+        .then((res) => {
+          return res.ip;
+        }).then(res => {
+          return axios.get(`http://api.ipstack.com/${res}?access_key=${IPSTACK_KEY}`);
+        }).then(res => {
+          const newQuery = new Query({
+            url,
+            visitCount: 1,
+            city: res.data.city,
+            state: res.data.region_name,
+            country: res.data.country_name,
+            latitude: res.data.latitude,
+            longitude: res.data.longitude
+          })
 
-      const newQuery = new Query({
-        url,
-        ip,
-        visitCount: 1,
-        city: location.data.city,
-        state: location.data.region_name,
-        country: location.data.country_name,
-        latitude: location.data.latitude,
-        longitude: location.data.longitude
-      })
+          newQuery.save().then(savedQuery => {
+            response.json(savedQuery.toJSON())
+          })
+        }).catch((error) => {
+          console.error(error);
+        });
 
-      newQuery.save().then(savedQuery => {
-        res.json(savedQuery.toJSON())
-      })
     }
   })
 })
